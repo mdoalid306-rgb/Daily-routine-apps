@@ -186,7 +186,7 @@ cursor: pointer;
 </div>
 <script>
 document.getElementById('date').innerText = new Date().toDateString();
-let data = JSON.parse(localStorage.getItem("dayrise")) || [];
+`let data = JSON.parse(localStor age.getItem("dayrise")) || \[\];
 function save() {
 localStorage.setItem("dayrise", JSON.stringify(data));
 render();
