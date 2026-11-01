@@ -1,345 +1,231 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>!
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DayRise</title>
-<link rel="manifest" href="manifest.json"\>
+<link rel="manifest" href="manifest.json">
 <style>
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
-
 body {
-    background: #101114;
-    color: white;
-    font-family: Arial, sans-serif;
-    padding: 20px;
+background: #101114;
+color: white;
+font-family: Arial, sans-serif;
+padding: 20px;
 }
-
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 30px;
 }
-
 .logo {
-    font-size: 27px;
-    font-weight: bold;
+font-size: 27px;
+font-weight: bold;
 }
-
 .logo span {
-    color: #a78bfa;
+color: #a78bfa;
 }
-
 .date {
-    color: #999;
-    font-size: 13px;
-    margin-top: 6px;
+color: #999;
+font-size: 13px;
+margin-top: 6px;
 }
-
 .card {
-    background: #1c1d24;
-    padding: 20px;
-    border-radius: 18px;
-    margin-bottom: 20px;
+background: #1c1d24;
+padding: 20px;
+border-radius: 18px;
+margin-bottom: 20px;
 }
-
 .progress-title {
-    color: #aaa;
-    font-size: 14px;
+color: #aaa;
+font-size: 14px;
 }
-
 .progress-number {
-    font-size: 36px;
-    font-weight: bold;
-    margin: 12px 0;
+font-size: 36px;
+font-weight: bold;
+margin: 12px 0;
 }
-
 .progress-bg {
-    background: #33343c;
-    height: 9px;
-    border-radius: 20px;
-    overflow: hidden;
+background: #33343c;
+height: 9px;
+border-radius: 20px;
+overflow: hidden;
 }
-
 .progress-fill {
-    background: #a78bfa;
-    height: 100%;
-    width: 0%;
-    transition: .3s;
+background: #a78bfa;
+height: 100%;
+width: 0%;
+transition: .3s;
 }
-
 .stats {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 25px;
+display: flex;
+gap: 12px;
+margin-bottom: 25px;
 }
-
 .stat {
-    flex: 1;
-    background: #1c1d24;
-    padding: 16px 10px;
-    border-radius: 15px;
-    text-align: center;
+flex: 1;
+background: #1c1d24;
+padding: 16px 10px;
+border-radius: 15px;
+text-align: center;
 }
-
 .stat h2 {
-    color: #a78bfa;
-    font-size: 23px;
+color: #a78bfa;
+font-size: 23px;
 }
-
 .stat p {
-    color: #999;
-    font-size: 12px;
-    margin-top: 6px;
+color: #999;
+font-size: 12px;
+margin-top: 6px;
 }
-
 .section-title {
-    font-size: 19px;
-    margin-bottom: 15px;
+font-size: 19px;
+margin-bottom: 15px;
 }
-
 .task {
-    background: #1c1d24;
-    padding: 16px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
+background: #1c1d24;
+padding: 16px;
+border-radius: 15px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 15px;
 }
-
-.task small {
-    color: #999;
-    display: block;
-    margin-top: 5px;
+.task-info {
+display: flex;
+align-items: center;
+gap: 12px;
 }
-
-.task input {
-    width: 23px;
-    height: 23px;
-    accent-color: #a78bfa;
+.checkbox {
+width: 23px;
+height: 23px;
+accent-color: #a78bfa;
 }
-
 .done .task-name {
-    text-decoration: line-through;
-    color: #777;
+text-decoration: line-through;
+color: #777;
 }
-
+.task-time {
+display: block;
+font-size: 11px;
+color: #777;
+margin-top: 2px;
+}
+.delete-btn {
+background: none;
+border: none;
+color: #ff4a4a;
+font-weight: bold;
+cursor: pointer;
+}
 .add-box {
-    display: flex;
-    gap: 8px;
-    margin-top: 15px;
+display: flex;
+gap: 8px;
+margin-top: 15px;
 }
-
-.add-box input {
-    flex: 1;
-    min-width: 0;
-    background: #252630;
-    border: 1px solid #383944;
-    border-radius: 10px;
-    padding: 13px;
-    color: white;
-    outline: none;
+.add-box input, .add-box select {
+flex: 1;
+min-width: 0;
+background: #252630;
+border: 1px solid #383944;
+border-radius: 10px;
+padding: 13px;
+color: white;
+outline: none;
 }
-
 button {
-    background: #a78bfa;
-    border: none;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: #17121f;
-}
-
-.reward {
-    text-align: center;
-    padding: 22px;
-}
-
-.reward .icon {
-    font-size: 35px;
-    margin-bottom: 10px;
-}
-
-.reward p {
-    color: #aaa;
-    margin-top: 8px;
-    font-size: 13px;
+background: #a78bfa;
+border: none;
+padding: 12px 16px;
+border-radius: 10px;
+font-weight: bold;
+color: #17121f;
+cursor: pointer;
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <div>
-        <div class="logo">Day<span>Rise.</span></div>
-        <div class="date" id="date"></div>
-    </div>
-    <div style="font-size:27px">🌙</div>
+<div>
+<div class="logo">Day<span>Rise.</span></div>
+<div class="date" id="date"></div>
+</div>
 </header>
-
 <div class="card">
-    <div class="progress-title">TODAY'S PROGRESS</div>
-    <div class="progress-number" id="percent">0%</div>
-    <div class="progress-bg">
-        <div class="progress-fill" id="bar"></div>
-    </div>
-    <p style="color:#999;margin-top:12px;font-size:13px" id="message">
-        Start your day strong!
-    </p>
+<div class="progress-title">TODAY'S PROGRESS</div>
+<div class="progress-number" id="percent">0%</div>
+<div class="progress-bg">
+<div class="progress-fill" id="bar"></div>
 </div>
-
+</div>
 <div class="stats">
-    <div class="stat">
-        <h2 id="completed">0</h2>
-        <p>Completed</p>
-    </div>
-    <div class="stat">
-        <h2 id="total">0</h2>
-        <p>Total Tasks</p>
-    </div>
-    <div class="stat">
-        <h2>🏆</h2>
-        <p>Rewards</p>
-    </div>
+<div class="stat">
+<h2 id="completed">0</h2>
+<p>Completed</p>
 </div>
-
-<h3 class="section-title">My Daily Routine</h3>
-
+<div class="stat">
+<h2 id="total">0</h2>
+<p>Total Tasks</p>
+</div>
+<div class="stat">
+<h2>🏆</h2>
+<p>Rewards</p>
+</div>
+</div>
+<div class="section-title">My Daily Routine</div>
 <div id="tasks"></div>
-
 <div class="add-box">
-    <input type="text" id="newTask"
-    placeholder="Add a new routine...">
-    <button onclick="addTask()">+</button>
+<input type="text" id="newTask" placeholder="Add a new routine...">
+< id="newTime">
+\`\<input type="time" id="newTime"\>
+<button onclick="addTask()">+</button>
 </div>
-
-<div class="card reward" style="margin-top:25px">
-    <div class="icon">🔥</div>
-    <h3>Keep Going!</h3>
-    <p>Every small step makes you better.</p>
-</div>
-
 <script>
-const today = new Date().toISOString().slice(0,10);
-
-document.getElementById("date").innerText =
-new Date().toDateString();
-
-let data = JSON.parse(localStorage.getItem("dayrise")) || {};
-
-if (data.date !== today) {
-    data.date = today;
-    data.tasks = (data.tasks || []).map(task => ({
-        ...task,
-        done: false
-    }));
-}
-
-if (!data.tasks || data.tasks.length === 0) {
-    data.tasks = [
-        {name:"Wake up early", time:"06:00 AM", done:false},
-        {name:"Morning fresh up", time:"06:30 AM", done:false},
-        {name:"Exercise", time:"07:00 AM", done:false},
-        {name:"Breakfast", time:"08:00 AM", done:false},
-        {name:"Start work", time:"09:00 AM", done:false},
-        {name:"Read a book", time:"09:00 PM", done:false}
-    ];
-}
-
+document.getElementById('date').innerText = new Date().toDateString();
+let data = JSON.parse(localStorage.getItem("dayrise")) || [];
 function save() {
-    localStorage.setItem("dayrise", JSON.stringify(data));
+localStorage.setItem("dayrise", JSON.stringify(data));
+render();
 }
-
 function render() {
-    let box = document.getElementById("tasks");
-    box.innerHTML = "";
-
-    let completed = data.tasks.filter(t => t.done).length;
-    let total = data.tasks.length;
-
-    let percent = total ?
-    Math.round(completed / total * 100) : 0;
-
-    document.getElementById("percent").innerText =
-    percent + "%";
-
-    document.getElementById("bar").style.width =
-    percent + "%";
-
-    document.getElementById("completed").innerText =
-    completed;
-
-    document.getElementById("total").innerText =
-    total;
-
-    document.getElementById("message").innerText =
-    percent === 100 && total > 0 ?
-    "Amazing! All tasks completed! 🎉" :
-    "Keep going! You can do it.";
-
-    data.tasks.forEach((task, index) => {
-        let div = document.createElement("div");
-
-        div.className = "task" +
-        (task.done ? " done" : "");
-
-        let info = document.createElement("div");
-
-        let name = document.createElement("strong");
-        name.className = "task-name";
-        name.textContent = task.name;
-
-        let time = document.createElement("small");
-        time.textContent = task.time || "Daily task";
-
-        info.appendChild(name);
-        info.appendChild(time);
-
-        let check = document.createElement("input");
-        check.type = "checkbox";
-        check.checked = task.done;
-
-        check.onchange = function() {
-            data.tasks[index].done = this.checked;
-            save();
-            render();
-        };
-
-        div.appendChild(info);
-        div.appendChild(check);
-
-        box.appendChild(div);
-    });
-
-    save();
+let container = document.getElementById('tasks');
+container.innerHTML = "";
+let completedCount = 0;
+data.forEach((task, index) => {
+if (task.done) completedCount++;
+let taskDiv = document.createElement('div');
+taskDiv.className = task ${task.done ? 'done' : ''};
+taskDiv.innerHTML = <div class="task-info"> <input type="checkbox" class="checkbox" ${task.done ? 'checked' : ''} onchange="toggleTask(${index})"> <div> <strong>${task.name}</strong> <span class="task-time">${task.time}</span> </div> </div> <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>;
+container.appendChild(taskDiv);
+});
+document.getElementById('completed').innerText = completedCount;
+document.getElementById('total').innerText = data.length;
+let percent = data.length > 0 ? Math.round((completedCount / data.length) * 100) : 0;
+document.getElementById('percent').innerText = ${percent}%;
+document.getElementById('bar').style.width = ${percent}%;
 }
-
 function addTask() {
-    let input = document.getElementById("newTask");
-    let name = input.value.trim();
-
-    if (!name) return;
-
-    data.tasks.push({
-        name: name,
-        time: "Custom task",
-        done: false
-    });
-
-    input.value = "";
-    save();
-    render();
+let input = document.getElementById('newTask');
+let timeInput = document.getElementById('newTime');
+if (input.value.trim() === "") return;
+data.push({ name: input.value, time: timeInput.value, done: false });
+input.value = "";
+save();
 }
-
+function toggleTask(index) {
+data[index].done = !data[index].done;
+save();
+}
+function deleteTask(index) {
+data.splice(index, 1);
+save();
+}
 render();
 </script>
-
 </body>
-</html> 
+</html>
