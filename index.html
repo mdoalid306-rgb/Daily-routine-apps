@@ -209,7 +209,7 @@ document.getElementById('percent').innerText = ${percent}%;
 document.getElementById('bar').style.width = ${percent}%;
 }
 function addTask() {
-let input = document.getElementById('newTask');
+let input = document.ge tElementById('newTask');
 let timeInput = document.getElementById('newTime');
 if (input.value.trim() === "") return;
 data.push({ name: input.value, time: timeInput.value, done: false });
